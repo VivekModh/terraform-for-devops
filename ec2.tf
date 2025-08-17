@@ -55,7 +55,8 @@ resource "aws_instance" "my_instance" {
   ami           = var.ec2_ami_id
   instance_type = var.ec2_instance_type 
   key_name      = aws_key_pair.my_key.key_name
-
+  
+  user_data = file("install_nginx.sh")
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
 
   root_block_device {
