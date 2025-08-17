@@ -1,0 +1,69 @@
+resource "aws_key_pair" "my_key" {
+  key_name   = "terra-key"
+  public_key = file("terra-key.pub")
+}
+
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
+
+resource "aws_security_group" "my_security_group" {
+  name        = "automate-sg"
+  description = "this will add TF generated security group"
+  vpc_id      = aws_default_vpc.default.id
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "ssh open"
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "http open"
+  }
+
+  ingress {
+    from_port   = 8000
+    to_port     = 8000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "flask app"
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "all access open outbound"
+  }
+
+  tags = {
+    Name = "automate-sg"
+  }
+}
+
+resource "aws_instance" "my_instance" {
+  ami           = "ami-0f918f7e67a3323f0"
+  instance_type = "t2.micro"
+  key_name      = aws_key_pair.my_key.key_name
+
+  vpc_security_group_ids = [aws_security_group.my_security_group.id]
+
+  root_block_device {
+    volume_size = 8
+    volume_type = "gp3"
+  }
+
+  tags = {
+    Name = "vivekmodh-instance-usingtf"
+  }
+}
