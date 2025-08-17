@@ -1,0 +1,8 @@
+# Terraform files to ignore
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.swp
+*.pem
+*.key
