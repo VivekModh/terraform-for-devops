@@ -46,7 +46,7 @@ Supported variables:
 - `ami_id` → Amazon Machine Image ID  
 - `instance_type` → EC2 type (e.g., t2.micro, t3.medium)  
 - `root_block_size` → Root volume storage size  
-- `bucket_name` → S3 bucket name  
+ 
 
 Example:
 
@@ -54,8 +54,8 @@ Example:
 terraform apply \
   -var="region=us-east-1" \
   -var="ami_id=ami-1234567890abcdef0" \
-  -var="instance_type=t3.micro" \
-  -var="root_block_size=20" \
+  -var="instance_type=t2.micro" \
+  -var="root_block_size=8" \
   -var="bucket_name=my-terraform-bucket"
 
 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧 𝐬𝐭𝐞𝐩𝐬 𝐨𝐟 𝐭𝐞𝐫𝐫𝐢𝐟𝐨𝐫𝐦 𝐟𝐫𝐨𝐦 𝐨𝐟𝐟𝐢𝐜𝐢𝐚𝐥 𝐡𝐚𝐬𝐡𝐢𝐜𝐨𝐫𝐩 𝐰𝐞𝐛𝐬𝐢𝐭𝐞-
