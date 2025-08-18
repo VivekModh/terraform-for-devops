@@ -59,7 +59,9 @@ terraform apply \
   -var="bucket_name=my-terraform-bucket"
 
 
-Installation steps of terriform from official hashicorp website
+---
+
+𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧 𝐬𝐭𝐞𝐩𝐬 𝐨𝐟 𝐭𝐞𝐫𝐫𝐢𝐟𝐨𝐫𝐦 𝐟𝐫𝐨𝐦 𝐨𝐟𝐟𝐢𝐜𝐢𝐚𝐥 𝐡𝐚𝐬𝐡𝐢𝐜𝐨𝐫𝐩 𝐰𝐞𝐛𝐬𝐢𝐭𝐞-
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 wget -O- https://apt.releases.hashicorp.com/gpg | \
 gpg --dearmor | \
@@ -72,7 +74,7 @@ sudo apt update
 sudo apt-get install terraform
 terraform --version
 
-Commands i used mainly -
+𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬 𝐢 𝐮𝐬𝐞𝐝 𝐦𝐚𝐢𝐧𝐥𝐲 -
 terraform init
 terraform plan
 terraform fmt
