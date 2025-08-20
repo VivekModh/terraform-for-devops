@@ -1,8 +1,18 @@
-# Terraform files to ignore
-.terraform/
-.terraform.lock.hcl
+# Terraform state
 *.tfstate
 *.tfstate.*
-*.swp
+crash.log
+crash.*.log
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform/
+.terraform.lock.hcl
+
+# Keys
 *.pem
 *.key
+terra-key
+terra-key.pub

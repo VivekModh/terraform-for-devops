@@ -53,14 +53,14 @@ resource "aws_security_group" "my_security_group" {
 
 resource "aws_instance" "my_instance" {
   ami           = var.ec2_ami_id
-  instance_type = var.ec2_instance_type 
+  instance_type = var.ec2_instance_type
   key_name      = aws_key_pair.my_key.key_name
-  
-  user_data = file("install_nginx.sh")
+
+  user_data              = file("install_nginx.sh")
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
 
   root_block_device {
-    volume_size = var.ec2_root_storage_size
+    volume_size = var.env == "prd" ? 15 : var.ec2_default_root_storage_size
     volume_type = "gp3"
   }
 
