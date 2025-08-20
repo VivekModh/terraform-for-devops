@@ -36,6 +36,8 @@ terraform --version
 
 ---
 
+
+
 🔑 Common Terraform Commands
 terraform init            # Initialize working directory
 terraform plan            # Show execution plan
